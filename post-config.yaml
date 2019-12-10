@@ -1,0 +1,72 @@
+---
+
+- users:
+    tcrowe:
+      password: <hashed value>
+      email: tcrowe@redhat.com
+    anotherUser:
+      password: <hashed value>
+      email: user@userland.com
+
+- projects:
+    project1:
+      tags:
+        tag1
+        tag2
+        tag3
+    project2:
+      tags:
+        tagline
+
+- roleAssignments:
+  - user: tcrowe
+    project: project1
+    role: admin
+  - user: anotherUser
+    project: project2
+    role: _member_
+
+- quotas:
+    project1:
+      fixedIps: <int>
+      cores: <int>
+      injectedFileSize:
+      injectedPathSize:
+      injectedFiles:
+      instances: <int>
+      key-pairs: <int>
+      ram: <int>
+      serverGroups: <int>
+      serverGroupMembers: <int>
+      backups: <int>
+      backupGigabytes: <int>
+      gigabytes: <int>
+      perVolume: <int>
+      snapshots: <int>
+      volumes: <int>
+      floatingIps: <int>
+      secgroupRules: <int>
+      secgroups: <int>
+      networks: <int>
+      subnets: <int>
+      ports: <int>
+      routers: <int>
+      rbacPolicies: <int>
+      subnetPools: <int>
+      volumeType:
+
+  projectName:
+
+- images:
+  - imageName: rhel-guest
+    url: http://www/opentlc.com/images/rhel-blah-blah.raw
+    containerFormat: bare
+    diskFormat: raw
+    minDisk: 50
+    minRam: 4096
+    tags:
+      tag1
+      tag2
+      tag3
+    isPublic: True
+    project: project1
