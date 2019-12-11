@@ -1,0 +1,150 @@
+---
+
+- users:
+    user1_1:
+      password: "Badpassword!"
+      email: invalid@example.com
+    user2_1:
+      password: "AnotherBadPassword"
+      email: invalid@example.com
+    user3_1:
+      password: "NotAGoodPassword"
+      email: anotherInvalid@example.com
+    user1_2:
+      password: "notAgain"
+      email: bad_email@nowhere.com
+    user1_3:
+      password: "ohboyhereitis"
+      email: imNotHere@example.com
+
+- projects:
+  - TACproject1
+  - TACproject2
+  - TACproject3
+
+- roleAssignments:
+  - user: user1_1
+    project: TACproject1
+    role: admin
+  - user: user2_1
+    project: TACproject1
+    role: _member_
+  - user: user3_1
+    project: TACproject1
+    role: _member_
+  - user: user1_2
+    project: TACproject2
+    role: _member_
+  - user: user1_3
+    project: TACproject3
+    role: admin
+  - user: user1_1
+    project: TACproject2
+    role: admin
+
+- quotas:
+    TACproject1:
+      fixedIps: 3
+      cores: 12
+      injectedFileSize: 1048576
+      injectedPathSize: 32
+      injectedFiles: 10
+      instances: 8
+      keypairs: 8
+      ram: 16384
+      serverGroups: 1
+      serverGroupMembers: 4
+      backups: 1
+      backupGigabytes: 16
+      gigabytes: 32
+      perVolume: 8
+      snapshots: 1
+      volumes: 16
+      floatingIps: 3
+      secgroupRules: 32
+      secgroups: 2
+      networks: 2
+      subnets: 2
+      ports: 16
+      routers: 2
+      loadbalancer: 1
+    TACproject3:
+      fixedIps: 3
+      cores: 12
+      injectedFileSize: 1048576
+      injectedPathSize: 32
+      injectedFiles: 10
+      instances: 8
+      keypairs: 8
+      ram: 16384
+      serverGroups: 1
+      serverGroupMembers: 4
+      backups: 1
+      backupGigabytes: 16
+      gigabytes: 32
+      perVolume: 8
+      snapshots: 1
+      volumes: 16
+      floatingIps: 3
+      secgroupRules: 32
+      secgroups: 2
+      networks: 2
+      subnets: 2
+      ports: 16
+      routers: 2
+      loadbalancer: 1
+    TACproject2:
+      fixedIps: -1
+      cores: -1
+      injectedFileSize: -1
+      injectedPathSize: -1
+      injectedFiles: -1
+      instances: -1
+      keypairs: -1
+      ram: -1
+      serverGroups: -1
+      serverGroupMembers: -1
+      backups: -1
+      backupGigabytes: -1
+      gigabytes: -1
+      perVolume: -1
+      snapshots: -1
+      volumes: -1
+      floatingIps: -1
+      secgroupRules: -1
+      secgroups: -1
+      networks: -1
+      subnets: -1
+      ports: -1
+      routers: -1
+      loadbalancer: -1
+
+- images:
+    cirros1:
+      fileName: images/cirros-0.4.0-x86_64-disk.img
+      containerFormat: bare
+      diskFormat: raw
+      isPublic: True
+      isProtected: False
+    cirros2:
+      fileName: images/cirros-0.4.0-x86_64-disk.img
+      containerFormat: bare
+      diskFormat: raw
+      isPublic: False
+      isProtected: True
+    cirros3:
+      fileName: images/cirros-0.4.0-x86_64-disk.img
+      containerFormat: bare
+      diskFormat: raw
+      isPublic: True
+      isProtected: True
+      minDisk: 2
+      minRam: 2048
+
+- flavors:
+    testingTiny:
+      ram: 2048
+      cpus: 1
+    testingLarge:
+      ram: 16384
+      cpus: 16
